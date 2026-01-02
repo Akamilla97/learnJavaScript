@@ -66,4 +66,36 @@ async function asyncPromises() {
     return results
 }
 
-asyncPromises().then((arrPromises) => console.log(arrPromises))
+//asyncPromises().then((arrPromises) => console.log(arrPromises))
+
+
+
+//===============================     task 30        =========================
+
+// ▷ Реализуйте функцию, которая выполняет несколько асинхронных операций параллельно и возвращает их результаты
+
+function asyncOpA() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve('A'), 1000);
+    });
+}
+function asyncOpB() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve('B'), 2000);
+    });
+}
+function asyncOpC() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve('C'), 3000);
+    });
+}
+
+// Напишите функцию, которая выполняет asyncOpA, asyncOpB, asyncOpC параллельно
+// и возвращает массив результатов ['A', 'B', 'C'].
+
+
+function parallelFunc(){
+    return Promise.all([asyncOpA(), asyncOpB(), asyncOpC()])
+}
+
+parallelFunc().then(res => console.log(res))
