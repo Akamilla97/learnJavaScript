@@ -1,4 +1,6 @@
-// ▷Реализуйте функцию, которая выполняет несколько асинхронных операций последовательно,
+//===============================     task 28        =========================
+
+// ▷ Реализуйте функцию, которая выполняет несколько асинхронных операций последовательно,
 // используя цепочку промисов
 
 function asyncOp1() {
@@ -19,8 +21,7 @@ function asyncOp3() {
 // Напишите функцию, которая выполняет asyncOp1, затем asyncOp2, затем asyncOp3,
 // и возвращает массив результатов [result1, result2, result3].
 
-
-
+// Решение
 
 function asyncPromis(){
     const arrPromises = []
@@ -40,4 +41,29 @@ function asyncPromis(){
         })
 }
 
-asyncPromis().then((arrPromises) => console.log(arrPromises))
+// asyncPromis().then((arrPromises) => console.log(arrPromises))
+
+
+//===============================     task 29        =========================
+
+// ▷ Перепишите предыдущую задачу с использованием async/await, чтобы сделать код более читаемым
+
+
+
+
+async function asyncPromises() {
+    const results = []
+
+    const res1 = await asyncOp1()
+    results.push(res1)
+
+    const res2 = await asyncOp2()
+    results.push(res2)
+
+    const res3 = await asyncOp3()
+    results.push(res3)
+
+    return results
+}
+
+asyncPromises().then((arrPromises) => console.log(arrPromises))
