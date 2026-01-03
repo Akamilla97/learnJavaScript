@@ -185,3 +185,26 @@ function fetchDataPromise(url) {
 //fetchDataPromise('https://api.example.com').then(data => console.log(data));   //непонятная задача
 
 
+
+//===============================     task 33        =========================
+
+// ▷ Создайте функцию, которая будет возвращать результат первой завершившейся асинхронной операции из двух
+
+
+function slowPromise() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve('Slow Promise'), 3000);
+    });
+}
+function fastPromise() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve('Fast Promise'), 1000);
+    });
+}
+
+
+function racePromises() {
+    return Promise.race([slowPromise(), fastPromise()])
+}
+
+//racePromises().then((res) => {console.log(res)})
