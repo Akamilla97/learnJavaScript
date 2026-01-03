@@ -158,3 +158,30 @@ async function funcAsyncPar() {
 }
 
 // funcAsyncPar()
+
+
+//===============================     task 32        =========================
+
+// ▷ У вас есть функция fetchData, которая принимает URL и колбэк, 
+// который вызывается с данными после получения ответа. Промисифицируйте эту функцию, чтобы она возвращала промис
+
+
+function fetchData(url, callback) {
+    setTimeout(() => {
+        callback(`Data from ${url}`);
+    }, 2000);
+}
+// Промисифицируйте функцию fetchData так, чтобы она возвращала промис.
+// Пример вызова: fetchDataPromise('https://api.example.com').then(data => console.log(data));
+
+function fetchDataPromise(url) {
+    return new Promise((resolve) => {
+        fetchData(url, (data) => {
+            resolve(data);
+        });
+    });
+}
+
+//fetchDataPromise('https://api.example.com').then(data => console.log(data));   //непонятная задача
+
+
